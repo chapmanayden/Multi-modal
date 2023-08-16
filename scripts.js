@@ -10,3 +10,6 @@ function nextStep(stepId) {
 window.onload = function() {
     document.getElementById('start').style.display = 'block';
 }
+function resetTroubleshooting() {
+  location.reload();
+}
