@@ -1,12 +1,12 @@
-
 function nextStep(stepId) {
-    // Hide all steps
-    const steps = document.querySelectorAll(".step");
-    for (let step of steps) {
-        step.style.display = "none";
-    }
+    const steps = document.querySelectorAll('.step');
+    steps.forEach(step => {
+        step.style.display = 'none';
+    });
+    document.getElementById(stepId).style.display = 'block';
+}
 
-    // Show the selected step
-    const selectedStep = document.getElementById(stepId);
-    selectedStep.style.display = "block";
+// Starting step
+window.onload = function() {
+    document.getElementById('start').style.display = 'block';
 }
