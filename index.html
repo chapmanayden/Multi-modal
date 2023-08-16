@@ -14,111 +14,67 @@
     <button onclick="nextStep('noIT')">No</button>
 </div>
 
-<!-- For Regular Users -->
-
 <div class="step" id="noIT">
     <p>Is the computer turning on?</p>
     <button onclick="nextStep('compOn')">Yes</button>
     <button onclick="nextStep('compOff')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
 </div>
 
 <div class="step" id="compOn">
-    <p>Is the screen display correct?</p>
-    <button onclick="nextStep('screenCorrect')">Yes</button>
-    <button onclick="nextStep('screenIncorrect')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="screenCorrect">
-    <p>Are you having issues connecting to the internet?</p>
-    <button onclick="nextStep('internetIssue')">Yes</button>
-    <button onclick="nextStep('allFine')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="internetIssue">
-    <p>Restart your router. Did it resolve the issue?</p>
-    <button onclick="nextStep('routerResolved')">Yes</button>
-    <button onclick="nextStep('routerNotResolved')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="routerNotResolved">
-    <p>Contact your internet service provider or try connecting to another network.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="screenIncorrect">
-    <p>Adjust the screen resolution or try connecting an external monitor.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
+    <p>Is the operating system loading properly?</p>
+    <button onclick="nextStep('osLoading')">Yes</button>
+    <button onclick="nextStep('osNotLoading')">No</button>
 </div>
 
 <div class="step" id="compOff">
-    <p>Check if the power cable is properly connected or try a different power outlet.</p>
-    <button onclick="nextStep('powerResolved')">Yes</button>
-    <button onclick="nextStep('powerNotResolved')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
+    <p>Check power cable and retry. Did it work?</p>
+    <button onclick="nextStep('powerCheckWorked')">Yes</button>
+    <button onclick="nextStep('contactSupport')">No</button>
 </div>
 
-<div class="step" id="powerNotResolved">
-    <p>Contact technical support.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
+<div class="step" id="osLoading">
+    <p>Are there any unusual noises coming from the computer?</p>
+    <button onclick="nextStep('unusualNoises')">Yes</button>
+    <button onclick="nextStep('allFine')">No</button>
+</div>
+
+<div class="step" id="osNotLoading">
+    <p>Try restarting your computer. Did it work?</p>
+    <button onclick="nextStep('restartWorked')">Yes</button>
+    <button onclick="nextStep('contactSupport')">No</button>
+</div>
+
+<div class="step" id="unusualNoises">
+    <p>It might be a hardware issue. Contact support.</p>
 </div>
 
 <div class="step" id="allFine">
-    <p>Your computer seems fine. If you face other issues, revisit this guide.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
+    <p>Your computer seems to be in good condition. If you have any other issues, restart or contact support.</p>
 </div>
 
-<!-- For IT Professionals -->
+<div class="step" id="contactSupport">
+    <p>Please contact technical support or refer to an IT professional.</p>
+</div>
 
 <div class="step" id="yesIT">
-    <p>Is the issue related to hardware or software?</p>
+    <p>Do you think it's a hardware or software issue?</p>
     <button onclick="nextStep('hardwareIssue')">Hardware</button>
     <button onclick="nextStep('softwareIssue')">Software</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
 </div>
 
 <div class="step" id="hardwareIssue">
-    <p>Have you checked internal components and connections?</p>
-    <button onclick="nextStep('componentsChecked')">Yes</button>
-    <button onclick="nextStep('componentsNotChecked')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="componentsChecked">
-    <p>Run diagnostic tests for RAM, GPU, and CPU. Were any issues detected?</p>
-    <button onclick="nextStep('issuesDetected')">Yes</button>
-    <button onclick="nextStep('noIssuesDetected')">No</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="issuesDetected">
-    <p>Consider replacing or fixing the faulty component.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="componentsNotChecked">
-    <p>Inspect the internal components and ensure all connections are secure.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
+    <p>Check for any visible damage or listen for any unusual sounds from the internal components.</p>
+    <button onclick="nextStep('damagesFound')">Found Issues</button>
+    <button onclick="nextStep('noDamagesFound')">No Issues Found</button>
 </div>
 
 <div class="step" id="softwareIssue">
-    <p>Is the problem with the operating system or specific applications?</p>
+    <p>Is the problem related to the operating system or specific applications?</p>
     <button onclick="nextStep('osIssue')">Operating System</button>
     <button onclick="nextStep('appIssue')">Applications</button>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
 </div>
 
-<div class="step" id="osIssue">
-    <p>Have you tried booting in safe mode or repairing the OS installation?</p><button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
-
-<div class="step" id="appIssue">
-    <p>Consider reinstalling the problematic application or checking for software conflicts.</p>
-    <button class="back-btn" onclick="resetTroubleshooting()">Back to Start</button>
-</div>
+<!-- ... And so on. You can keep adding steps as needed ... -->
 
 <script src="script.js"></script>
 </body>
