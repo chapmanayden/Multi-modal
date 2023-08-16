@@ -1,3 +1,4 @@
+
 function nextStep(stepId) {
     const steps = document.querySelectorAll('.step');
     steps.forEach(step => {
@@ -9,7 +10,4 @@ function nextStep(stepId) {
 // Starting step
 window.onload = function() {
     document.getElementById('start').style.display = 'block';
-}
-function resetTroubleshooting() {
-  location.reload();
 }
