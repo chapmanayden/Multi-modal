@@ -3,64 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Troubleshooting Flowchart</title>
+    <title>Computer Troubleshooting</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Computer Troubleshooting Flowchart</h1>
-        <p>Follow the guide below to resolve your computer issue.</p>
-    </header>
 
-    <section id="basicSteps">
-        <h2>Basic Troubleshooting Steps</h2>
-        <ol>
-            <li>Ensure the computer is powered on. If not, turn it on.</li>
-            <li>Check if the monitor/display is on and connected.</li>
-            <li>Try restarting the computer.</li>
-            <li>Ensure all cables are securely connected.</li>
-            <li>Test the computer on a different power outlet.</li>
-            <li>Are there any unusual noises or lights from the computer? Note them down.</li>
-            <li>Run a basic antivirus/malware scan.</li>
-            <li>Free up storage space if the computer is running slow.</li>
-            <li>Update your operating system and software.</li>
-            <li>Reset network settings if facing internet issues.</li>
-        </ol>
-    </section>
+<div id="stepContainer">
+    <!-- Initial question -->
+    <div class="step" id="step1">
+        Is the computer turned on?
+        <button onclick="nextStep('noPower')">No</button>
+        <button onclick="nextStep('itProfessional')">Yes</button>
+    </div>
 
-    <section id="intermediateSteps">
-        <h2>Intermediate Troubleshooting Steps</h2>
-        <ol>
-            <li>Try booting the computer in Safe Mode.</li>
-            <li>Clear temporary files and cache.</li>
-            <li>Update or reinstall device drivers.</li>
-            <li>Test with an external monitor (for display issues).</li>
-            <li>Perform a system restore to an earlier point.</li>
-            <li>Check for overheating - clean dust from fans and vents.</li>
-            <li>Run a disk check and memory check tool.</li>
-            <li>Reconfigure or reset the BIOS/UEFI settings.</li>
-        </ol>
-    </section>
+    <!-- IT Professional Check -->
+    <div class="step" id="itProfessional" style="display: none;">
+        Are you an IT Professional?
+        <button onclick="nextStep('mainMenu')">Yes</button>
+        <button onclick="nextStep('noProfessional')">No</button>
+    </div>
 
-    <section id="advancedSteps" style="display: none;">
-        <h2>Advanced Troubleshooting Steps</h2>
-        <ol>
-            <li>Inspect motherboard for visible damage or burnt components.</li>
-            <li>Test individual hardware components (RAM, GPU, CPU).</li>
-            <li>Check system logs for errors or warnings.</li>
-            <li>Reinstall the operating system.</li>
-            <li>Use bootable diagnostic tools to test hardware.</li>
-            <li>Inspect PSU output using a multimeter.</li>
-            <li>Check network configurations, firewall rules, and routing.</li>
-            <li>Examine storage devices for hardware failures.</li>
-            <li>Test with a different PSU or motherboard.</li>
-            <li>Seek expert advice or consider replacement of faulty hardware.</li>
-        </ol>
-    </section>
-    
-    <footer>
-        <button id="itCheckButton">I'm an IT professional</button>
-    </footer>
+    <!-- Non-IT Professionals -->
+    <div class="step" id="noProfessional" style="display: none;">
+        Please consult with an IT Professional for advanced issues.
+        <button onclick="nextStep('step1')">Go Back</button>
+    </div>
+
+    <!-- IT Professional Main Menu -->
+    <div class="step" id="mainMenu" style="display: none;">
+        Do you see any error messages?
+        <button onclick="nextStep('errorMessages')">Yes</button>
+        <button onclick="nextStep('noErrors')">No</button>
+    </div>
+
+    <div class="step" id="errorMessages" style="display: none;">
+        Search for the error message in the documentation.
+        <button onclick="nextStep('mainMenu')">Go Back</button>
+    </div>
+
+    <div class="step" id="noErrors" style="display: none;">
+        Proceed with a general systems check.
+        <button onclick="nextStep('systemCheck')">Proceed</button>
+    </div>
+
+    <div class="step" id="systemCheck" style="display: none;">
+        Check internal logs and monitor system health.
+        <button onclick="nextStep('logCheck')">Proceed</button>
+    </div>
+
+    <div class="step" id="logCheck" style="display: none;">
+        Do the logs indicate any issues?
+        <button onclick="nextStep('resolveIssues')">Yes</button>
+        <button onclick="nextStep('hardwareCheck')">No</button>
+    </div>
+
+    <div class="step" id="resolveIssues" style="display: none;">
+        Resolve the issues indicated by the logs.
+        <button onclick="nextStep('resolved')">Resolved</button>
+        <button onclick="nextStep('unresolved')">Unresolved</button>
+    </div>
+
+    <div class="step" id="hardwareCheck" style="display: none;">
+        Run a full hardware diagnostic.
+        <button onclick="nextStep('hardwareIssues')">Found Issues</button>
+        <button onclick="nextStep('noHardwareIssues')">No Issues</button>
+    </div>
+
+    <div class="step" id="hardwareIssues" style="display: none;">
+        Address the hardware issues.
+        <button onclick="nextStep('resolved')">Resolved</button>
+        <button onclick="nextStep('unresolved')">Unresolved</button>
+    </div>
+
+    <div class="step" id="noHardwareIssues" style="display: none;">
+        Consider a system restore or contact vendor support.
+        <button onclick="nextStep('resolved')">Resolved</button>
+        <button onclick="nextStep('unresolved')">Unresolved</button>
+    </div>
+
+    <div class="step" id="resolved" style="display: none;">
+        Great! Ensure regular maintenance checks.
+    </div>
+
+    <div class="step" id="unresolved" style="display: none;">
+        Consider escalating to a higher IT support tier or consulting external expertise.
+    </div>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>
