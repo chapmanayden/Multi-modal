@@ -3,82 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troubleshooting Flowchart</title>
-    <style>
-        .step {
-            display: none;
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .active {
-            display: block;
-        }
-        button {
-            padding: 10px 15px;
-            margin: 5px;
-            border: none;
-            border-radius: 3px;
-            background-color: #007BFF;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Computer Troubleshooting Flowchart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
+    <header>
+        <h1>Computer Troubleshooting Flowchart</h1>
+        <p>Follow the guide below to resolve your computer issue.</p>
+    </header>
 
-<div class="flowchart">
-    <!-- Basic Troubleshooting Steps -->
-    <div class="step active" id="step1">Is your computer powered on?<button onclick="proceed('step2')">Yes</button><button onclick="proceed('step3')">No</button></div>
+    <section id="basicSteps">
+        <h2>Basic Troubleshooting Steps</h2>
+        <ol>
+            <li>Ensure the computer is powered on. If not, turn it on.</li>
+            <li>Check if the monitor/display is on and connected.</li>
+            <li>Try restarting the computer.</li>
+            <li>Ensure all cables are securely connected.</li>
+            <li>Test the computer on a different power outlet.</li>
+            <li>Are there any unusual noises or lights from the computer? Note them down.</li>
+            <li>Run a basic antivirus/malware scan.</li>
+            <li>Free up storage space if the computer is running slow.</li>
+            <li>Update your operating system and software.</li>
+            <li>Reset network settings if facing internet issues.</li>
+        </ol>
+    </section>
+
+    <section id="intermediateSteps">
+        <h2>Intermediate Troubleshooting Steps</h2>
+        <ol>
+            <li>Try booting the computer in Safe Mode.</li>
+            <li>Clear temporary files and cache.</li>
+            <li>Update or reinstall device drivers.</li>
+            <li>Test with an external monitor (for display issues).</li>
+            <li>Perform a system restore to an earlier point.</li>
+            <li>Check for overheating - clean dust from fans and vents.</li>
+            <li>Run a disk check and memory check tool.</li>
+            <li>Reconfigure or reset the BIOS/UEFI settings.</li>
+        </ol>
+    </section>
+
+    <section id="advancedSteps" style="display: none;">
+        <h2>Advanced Troubleshooting Steps</h2>
+        <ol>
+            <li>Inspect motherboard for visible damage or burnt components.</li>
+            <li>Test individual hardware components (RAM, GPU, CPU).</li>
+            <li>Check system logs for errors or warnings.</li>
+            <li>Reinstall the operating system.</li>
+            <li>Use bootable diagnostic tools to test hardware.</li>
+            <li>Inspect PSU output using a multimeter.</li>
+            <li>Check network configurations, firewall rules, and routing.</li>
+            <li>Examine storage devices for hardware failures.</li>
+            <li>Test with a different PSU or motherboard.</li>
+            <li>Seek expert advice or consider replacement of faulty hardware.</li>
+        </ol>
+    </section>
     
-    <div class="step" id="step2">Is there a display on the screen?<button onclick="proceed('step4')">Yes</button><button onclick="proceed('step5')">No</button></div>
-    
-    <div class="step" id="step3">Check the power cables and connections. Press the power button. Is it on now?<button onclick="proceed('step2')">Yes</button><button onclick="proceed('step6')">No</button></div>
-    
-    <div class="step" id="step4">Can you operate it normally?<button onclick="proceed('step7')">Yes</button><button onclick="proceed('step8')">No</button></div>
-    
-    <div class="step" id="step5">Consider contacting IT or check monitor connection. If the monitor works on another computer, it might be a bigger issue. Does the computer turn on now?<button onclick="proceed('step2')">Yes</button><button onclick="proceed('step6')">No</button></div>
-    
-    <div class="step" id="step6">Might be time to visit a professional or contact IT. They should guide you further.</div>
-    
-    <div class="step" id="step7">Great! Your computer seems fine now. If the problem reoccurs, you may want to get it checked.</div>
-    
-    <div class="step" id="step8">Try restarting. Does that solve the problem?<button onclick="proceed('step9')">Yes</button><button onclick="proceed('step10')">No</button></div>
-    
-    <!-- Advanced Troubleshooting Steps -->
-    <div class="step" id="step9">Excellent! Keep a watch if the problem persists. Remember, when in doubt, restart.</div>
-
-    <div class="step" id="step10">Let's move to advanced troubleshooting. Have you installed new software/hardware recently?<button onclick="proceed('step11')">Yes</button><button onclick="proceed('step12')">No</button></div>
-
-    <div class="step" id="step11">Consider uninstalling or detaching and see if the problem persists. Does it?<button onclick="proceed('step13')">Yes</button><button onclick="proceed('step14')">No</button></div>
-
-    <div class="step" id="step12">Update your system or drivers. Has this resolved your issue?<button onclick="proceed('step15')">Yes</button><button onclick="proceed('step16')">No</button></div>
-
-    <div class="step" id="step13">It might not be the recent installation. You should consult IT or a professional.</div>
-
-    <div class="step" id="step14">The recent installation might be the culprit. Make sure to check compatibility next time.</div>
-
-    <div class="step" id="step15">Great! Regular updates can prevent many problems.</div>
-
-    <div class="step" id="step16">You might want to consider a system restore or consult with a professional.</div>
-</div>
-
-<script>
-    function proceed(stepId) {
-        // Hide all steps
-        var steps = document.querySelectorAll('.step');
-        for (var i = 0; i < steps.length; i++) {
-            steps[i].classList.remove('active');
-        }
-        // Show the desired step
-        document.getElementById(stepId).classList.add('active');
-    }
-</script>
-
+    <footer>
+        <button id="itCheckButton">I'm an IT professional</button>
+    </footer>
 </body>
 </html>
